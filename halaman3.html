@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Airinn 3 - Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <h2 data-aos="flip-up">Mini Quiz 🎁</h2>
+  <p data-aos="fade-down" data-aos-delay="200">Pilih tar mau jadi KAORI apa Gecko.</p>
+
+  <div class="option" data-correct="false" data-aos="fade-right">A. iya mau</div>
+  <div class="option" data-correct="true" data-aos="fade-right" data-aos-delay="100">B. iya</div>
+  <div class="option" data-correct="false" data-aos="fade-right" data-aos-delay="200">C. banget</div>
+  <div class="option" data-correct="false" data-aos="fade-right" data-aos-delay="300">D. Semua bener</div>
+
+  <div id="quizMsg" style="margin-top:12px;font-weight:600;color:#ff6b6b" data-aos="fade-up" data-aos-delay="400"></div>
+
+  <div class="nav" data-aos="fade-up" data-aos-delay="600">
+    <a href="halaman2.html"><button>Prev</button></a>
+  </div>
+
+  <!-- Quiz Script -->
+  <script>
+    document.querySelectorAll('.option').forEach(o=>{
+      o.addEventListener('click',()=>{
+        document.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'))
+        o.classList.add('selected')
+        const correct=o.getAttribute('data-correct')==='true'
+        document.getElementById('quizMsg').textContent=
+          correct ? "🎉 Benar! Selamat dapat surprise 🎁" : "Coba lagi!"
+      })
+    })
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
